@@ -11,7 +11,9 @@ exports.create = (request, response) => {
         gender: request.body.gender,
         phone: request.body.phone,
         email: request.body.email,
-        additional: request.body.additional
+        additional: request.body.additional,
+        address: request.body.address,
+        landmark: request.body.landmark
     });
     user.save((err,data) => global.sendResponse(err, data, request, response));
 };

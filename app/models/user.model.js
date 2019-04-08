@@ -11,7 +11,9 @@ const userSchema = mongoose.Schema(
         gender: { type: String, enum: [ 'Male', 'Female', 'Other' ], required: true },
         phone: { type: String, required: false, default: null },
         email: { type: String, required: true },
-        additional: { type: String, required: false, default: null }
+        additional: { type: String, required: false, default: null },
+        address: { type: String, required: false, default: null },
+        landmark: { type: String, required: false, default: null }
     },
     {
         timestamps: true
