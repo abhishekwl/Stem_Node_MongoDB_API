@@ -26,6 +26,7 @@ app.get('/', (request, response) => response.status(200).json({ message: 'All re
 
 require('./app/routes/user.routes')(app);
 require('./app/routes/hospital.routes')(app);
+require('./app/routes/test.routes')(app);
 app.listen(config.PORT, '0.0.0.0', ()=>{
     console.log('[SERVER] Listening on port '+config.PORT);
     mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true }).catch(err => {
