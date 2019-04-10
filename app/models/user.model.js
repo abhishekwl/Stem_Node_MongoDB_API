@@ -4,13 +4,13 @@ const userSchema = mongoose.Schema(
     {
         _id: { type: String, required: true, trim: true },
         name: { type: String, required: true, trim: true },
+        email: { type: String, required: true },
+        gender: { type: String, enum: [ 'Male', 'Female', 'Other' ], required: false, default: null },
         dob: { type: Number, required: false, default: null },
         latitude: { type: Number, required: false, default: null },
         longitude: { type: Number, required: false, default: null },
-        blood: { type: String, enum: [ 'A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-' ], required: true },
-        gender: { type: String, enum: [ 'Male', 'Female', 'Other' ], required: true },
+        blood: { type: String, enum: [ 'A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-' ], required: false, default: null },
         phone: { type: String, required: false, default: null },
-        email: { type: String, required: true },
         additional: { type: String, required: false, default: null },
         address: { type: String, required: false, default: null },
         landmark: { type: String, required: false, default: null }

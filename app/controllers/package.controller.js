@@ -5,7 +5,9 @@ exports.create = (request, response) => {
         title: request.body.title,
         description: request.body.description,
         tests: request.body.tests,
-        hospital: request.body.hospital
+        hospital: request.body.hospital,
+        image: request.body.image,
+        discount: request.body.discount
     });
     package.save((err,data) => global.sendResponse(err, data, request, response));
 };

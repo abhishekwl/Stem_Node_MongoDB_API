@@ -15,7 +15,13 @@ exports.create = (request, response) => {
         address: request.body.address,
         landmark: request.body.landmark
     });
-    user.save((err,data) => global.sendResponse(err, data, request, response));
+    user.save((err,data) => {
+        if(data!==null && data!==undefined && !err) {
+            global.users.push(data);
+            global.userIdArray.push(data._id);
+        }
+        global.sendResponse(err, data, request, response);
+    });
 };
 
 exports.getAll = (request, response) => {
@@ -24,9 +30,10 @@ exports.getAll = (request, response) => {
 };
 
 exports.get = (request, response) => {
-    const userId = request.params.id;
-    User.findById(userId, (err,data) => global.sendResponse(err, data, request, response));
-};
+    const userObject = global.users.find(user => user._id===request.params.id);
+    const err = (userObject===null||userObject===undefined)?'User with provided ID does not exist':null;
+    global.sendResponse(err, userObject, request, response);
+}
 
 exports.update = (request, response) => {
     const userId = request.params.id;
