@@ -4,7 +4,8 @@ exports.create = (request, response) => {
     const test = new Test({
         name: request.body.name,
         price: request.body.price,
-        hospital: request.body.hospital
+        hospital: request.body.hospital,
+        description: request.body.description
     });
     test.save((err,data) => global.sendResponse(err, data, request, response));
 };

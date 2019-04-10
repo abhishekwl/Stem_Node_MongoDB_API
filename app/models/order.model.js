@@ -7,7 +7,8 @@ const orderSchema = mongoose.Schema(
         latitude: { type: Number, required: true },
         longitude: { type: Number, required: true },
         tests: { type: [String], required: true },
-        status: { type: String, enum: ['AWAIT','ENROUTE','ACTIVE','COMPLETE'] }
+        status: { type: String, enum: ['AWAIT','ENROUTE','ACTIVE','COMPLETE'] },
+        package: { type: String, required: false, default: null }
     },
     {
         timestamps: true

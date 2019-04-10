@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const testSchema = mongoose.Schema(
     {
-        name: { type: String, required: true, text: true, lowercase: true },
+        name: { type: String, required: true, lowercase: true },
+        description: { type: String, required: false, lowercase: true },
         price: { type: Number, required: true },
         discount: { type: Number, required: false, default: 0 },
         popularity: { type: Number, required: false, default: 0 },
