@@ -5,6 +5,7 @@ module.exports = app => {
     app.post(ext, testController.create);
     app.get(ext, testController.getAll);
     app.get(ext+'/:id', testController.get);
+    app.get(ext+'/featured', testController.getFeatured);
     app.put(ext+'/:id', testController.update);
     app.delete(ext+'/:id', testController.delete);
 };
